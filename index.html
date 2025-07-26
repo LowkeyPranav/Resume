@@ -140,5 +140,22 @@
     </div>
   </div>
 	<button class="toggle-btn" onclick="toggleDarkMode()">🌓</button>
+	<script>
+  function toggleDarkMode() {
+    document.body.classList.toggle("dark-mode");
+    
+    // Optional: store preference
+    const isDark = document.body.classList.contains("dark-mode");
+    localStorage.setItem("darkMode", isDark ? "true" : "false");
+  }
+
+  // Apply saved theme on load
+  window.onload = () => {
+    if (localStorage.getItem("darkMode") === "true") {
+      document.body.classList.add("dark-mode");
+    }
+  };
+</script>
+
 </body>
 </html>
